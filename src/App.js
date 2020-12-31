@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { ThemeProvider } from "@material-ui/core";
+import "./App.css";
+import HomeAnimeList from "./Screens/HomeCandidateList";
+import theme from "./theme";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <Navigations />
+    </ThemeProvider>
+  );
+}
+
+function Navigations() {
+  return (
+    <Switch>
+      <Route exact path="/">
+        <HomeAnimeList />
+      </Route>
+    </Switch>
   );
 }
 
